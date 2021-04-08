@@ -4,8 +4,8 @@ Kuriama aprangų išrinkimo svetainė.
 
 Komandą surado:
 
-Tomas Sinkevičius
-Domantas Juškevičius
-Andrius Leksas
-Inesa Milkerytė
-Urtė Šlėgaitytė
+Tomas Sinkevičius,
+Domantas Juškevičius,
+Andrius Leksas,
+Inesa Milkerytė,
+Urtė Šlėgaitytė.
