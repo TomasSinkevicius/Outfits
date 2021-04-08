@@ -6,43 +6,30 @@
 
 <h1>Details</h1>
 
-<div>
-    <h4>Item</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            Uploaded Image
-        </dt>
-        <dd class="col-sm-10">
-            <img src="@("~/image/"+ Model.ImageName)" asp-append-version="true" width="250px" height="250px" />
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Likes)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Likes)
-        </dd>
-    </dl>
+
+<div class="col-sm-6">
+        <div class="card">
+            <img src="@("~/image/"+ Model.ImageName)" class="card-img-top" asp-append-version="true" />
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayNameFor(model => model.Name)</h5>
+                <p class="card-text">@Html.DisplayNameFor(model => model.Description)</p>
+                <p>@Html.DisplayFor(model => model.Price) €</p>
+            </div>
+            @*<div class="card-footer">
+                <small class="text-muted">@Html.DisplayFor(model => model.Likes)</small>
+            </div>*@
+        </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="row">
+    <div class="m-2">
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Redaguoti</a>
+    </div>
+    <div class="m-2">
+        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Ištrinti</a>
+    </div>
+    <div class="m-2">
+        <a asp-action="Index">Grįžti į sąrašą</a>
+    </div>
+   
 </div>
+
