@@ -21,7 +21,7 @@ namespace Outfits.Models
         public Shop Shop { get; set; }
 
         [NotMapped]
-        [DisplayName("Upload File")]
+        [DisplayName("Įkelti nuotrauką")]
         public IFormFile ImageFile { get; set; }
 
         public Item()

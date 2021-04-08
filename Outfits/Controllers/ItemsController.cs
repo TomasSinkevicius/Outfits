@@ -104,8 +104,18 @@ namespace Outfits.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Name,Description,Price,Likes")] Item item)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ImageFile,Name,Description,Price,Likes")] Item item)
         {
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(item.ImageFile.FileName);
+            string extension = Path.GetExtension(item.ImageFile.FileName);
+            item.ImageName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/image/", fileName);
+
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                await item.ImageFile.CopyToAsync(fileStream);
+            }
             if (id != item.Id)
             {
                 return NotFound();
