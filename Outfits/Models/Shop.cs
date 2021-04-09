@@ -11,7 +11,7 @@ namespace Outfits.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Item> Items { get; set; }
+        public List<Product> Items { get; set; }
 
         public Shop()
         {

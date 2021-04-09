@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace Outfits.Models
 {
-    public class Item
+    public class Product
     {
         [Key]
         public int Id { get; set; }
@@ -24,7 +24,7 @@ namespace Outfits.Models
         [DisplayName("Įkelti nuotrauką")]
         public IFormFile ImageFile { get; set; }
 
-        public Item()
+        public Product()
         {
             
         }

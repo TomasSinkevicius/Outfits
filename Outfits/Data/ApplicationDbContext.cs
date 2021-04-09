@@ -13,7 +13,7 @@ namespace Outfits.Data
             : base(options)
         {
         }
-        public DbSet<Outfits.Models.Item> Item { get; set; }
+        public DbSet<Outfits.Models.Product> Product { get; set; }
         public DbSet<Outfits.Models.Shop> Shop { get; set; }
     }
 }
