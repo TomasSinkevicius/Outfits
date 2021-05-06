@@ -219,7 +219,28 @@ namespace Outfits.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Outfits.Models.Item", b =>
+            modelBuilder.Entity("Outfits.Models.OutfitPost", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OutfitPost");
+                });
+
+            modelBuilder.Entity("Outfits.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -248,7 +269,7 @@ namespace Outfits.Data.Migrations
 
                     b.HasIndex("ShopId");
 
-                    b.ToTable("Item");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("Outfits.Models.Shop", b =>
@@ -317,7 +338,7 @@ namespace Outfits.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Outfits.Models.Item", b =>
+            modelBuilder.Entity("Outfits.Models.Product", b =>
                 {
                     b.HasOne("Outfits.Models.Shop", "Shop")
                         .WithMany("Items")

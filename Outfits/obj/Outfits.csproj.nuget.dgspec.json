@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tom\\source\\repos\\Outfits\\Outfits\\Outfits.csproj": {}
+    "D:\\AnalizesProjektas\\Outfits\\Outfits\\Outfits.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tom\\source\\repos\\Outfits\\Outfits\\Outfits.csproj": {
+    "D:\\AnalizesProjektas\\Outfits\\Outfits\\Outfits.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tom\\source\\repos\\Outfits\\Outfits\\Outfits.csproj",
+        "projectUniqueName": "D:\\AnalizesProjektas\\Outfits\\Outfits\\Outfits.csproj",
         "projectName": "Outfits",
-        "projectPath": "C:\\Users\\tom\\source\\repos\\Outfits\\Outfits\\Outfits.csproj",
-        "packagesPath": "C:\\Users\\tom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tom\\source\\repos\\Outfits\\Outfits\\obj\\",
+        "projectPath": "D:\\AnalizesProjektas\\Outfits\\Outfits\\Outfits.csproj",
+        "packagesPath": "C:\\Users\\antan\\.nuget\\packages\\",
+        "outputPath": "D:\\AnalizesProjektas\\Outfits\\Outfits\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\antan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[3.1.13, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.13, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -77,6 +81,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.14, 3.1.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -85,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -15,5 +15,6 @@ namespace Outfits.Data
         }
         public DbSet<Outfits.Models.Product> Product { get; set; }
         public DbSet<Outfits.Models.Shop> Shop { get; set; }
+        public DbSet<Outfits.Models.OutfitPost> OutfitPost { get; set; }
     }
 }

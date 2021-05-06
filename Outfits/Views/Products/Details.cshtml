@@ -8,8 +8,8 @@
         <div class="card">
             <img src="@("~/image/"+ Model.ImageName)" class="card-img-top" asp-append-version="true" />
             <div class="card-body">
-                <h5 class="card-title">@Html.DisplayNameFor(model => model.Name)</h5>
-                <p class="card-text">@Html.DisplayNameFor(model => model.Description)</p>
+                <h5 class="card-title">@Html.DisplayFor(model => @model.Name)</h5>
+                <p class="card-text">@Html.DisplayFor(model => @model.Description)</p>
                 <p>@Html.DisplayFor(model => model.Price) €</p>
             </div>
             @*<div class="card-footer">
