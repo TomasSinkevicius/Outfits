@@ -1,0 +1,18 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Prašome patvirtinti registraciją.";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+
+    <label >Įveskite el.pašte gautą kodą.</label>
+    <br>
+    <input type="text">
+    <br>
+    <p>
+        <a class="btn btn-primary mt-2" id="confirm-link" href="@Model.EmailConfirmationUrl">Patvirtinti registraciją</a>
+    </p>
+
+}

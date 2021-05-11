@@ -572,3 +572,10 @@ C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Outfits.csp
 C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Outfits.dll
 C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Outfits.pdb
 C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Outfits.genruntimeconfig.cache
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
