@@ -51,6 +51,15 @@ namespace Outfits.Controllers
         // GET: OutfitPosts/Create
         public IActionResult Create()
         {
+
+            ViewBag.Products = GetProducts().Select(x => new SelectListItem()
+            {                      
+                Text = x.Name,              
+                Value = x.Name.ToString(),
+
+            }).ToList();
+
+            
             return View();
         }
 
@@ -59,10 +68,17 @@ namespace Outfits.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ImageFile,Name,Description,Price,Likes")] OutfitPost outfitPost)
+        public async Task<IActionResult> Create([Bind("Id,ImageFile,username,Description,Product1,Product2,Product3")] OutfitPost outfitPost)
         {
-            if (ModelState.IsValid)
+            ViewBag.Products = GetProducts().Select(x => new SelectListItem()
             {
+                Text = x.Name,
+                Value = x.Name.ToString(),
+
+            }).ToList();
+
+            if (ModelState.IsValid)
+            {   
                 // Save image to wwwroot/image
                 string wwwRootPath = _hostEnvironment.WebRootPath;
                 string fileName = Path.GetFileNameWithoutExtension(outfitPost.ImageFile.FileName);
@@ -103,7 +119,7 @@ namespace Outfits.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ImageFile,Name,Description,Price,Likes")] OutfitPost outfitPost)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ImageFile,username,Description")] OutfitPost outfitPost)
         {
             string wwwRootPath = _hostEnvironment.WebRootPath;
             string fileName = Path.GetFileNameWithoutExtension(outfitPost.ImageFile.FileName);
@@ -179,6 +195,19 @@ namespace Outfits.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public List<Product> GetProducts()
+        {
+            List<Product> products = new List<Product>();
+            Product product = new Product();
+            product.Name = "";
+            products.Add(product);
+            var allProducts = _context.Product.ToList();
+            foreach (var data in allProducts)
+            {
+                products.Add(data);
+            }
+            return products;
+        }
         private bool OutfitPostExists(int id)
         {
             return _context.OutfitPost.Any(e => e.Id == id);

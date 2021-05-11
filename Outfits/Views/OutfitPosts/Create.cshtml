@@ -27,11 +27,32 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
 
+            <div class="form-group">
+                <label asp-for="Product1" class="control-label"> Pasirinkite produktus, kurie yra skelbime</label>
+                
+                <select asp-for="Product1" class="form-control" asp-items="ViewBag.Products">
+                </select>
+                <span asp-validation-for="Product1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product2" class="control-label"> --------------------------------------------- </label>
+                <select asp-for="Product2" class="form-control" asp-items="ViewBag.Products">
+                </select>
+                <span asp-validation-for="Product2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product3" class="control-label"> --------------------------------------------- </label>                
+                <select asp-for="Product3" class="form-control" asp-items="ViewBag.Products">
+                </select>
+                <span asp-validation-for="Product3" class="text-danger"></span>
+            </div>
+
+
             @*<div class="form-group">
-                    <label asp-for="Likes" class="control-label"></label>
-                    <input asp-for="Likes" class="form-control" />
-                    <span asp-validation-for="Likes" class="text-danger"></span>
-                </div>*@
+            <label asp-for="Likes" class="control-label"></label>
+            <input asp-for="Likes" class="form-control" />
+            <span asp-validation-for="Likes" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -40,7 +61,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Go Bback to OutfitPost List</a>
+    <a asp-action="Index">Go Back to OutfitPost List</a>
 </div>
 
 @section Scripts {

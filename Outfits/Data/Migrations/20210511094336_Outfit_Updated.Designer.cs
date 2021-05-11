@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Outfits.Data;
 
 namespace Outfits.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210511094336_Outfit_Updated")]
+    partial class Outfit_Updated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -232,15 +234,6 @@ namespace Outfits.Data.Migrations
                     b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Product1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Product2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Product3")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("username")
                         .HasColumnType("nvarchar(max)");
 
@@ -268,6 +261,9 @@ namespace Outfits.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OutfitPostId")
+                        .HasColumnType("int");
+
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
@@ -275,6 +271,8 @@ namespace Outfits.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OutfitPostId");
 
                     b.HasIndex("ShopId");
 
@@ -349,6 +347,10 @@ namespace Outfits.Data.Migrations
 
             modelBuilder.Entity("Outfits.Models.Product", b =>
                 {
+                    b.HasOne("Outfits.Models.OutfitPost", null)
+                        .WithMany("Items")
+                        .HasForeignKey("OutfitPostId");
+
                     b.HasOne("Outfits.Models.Shop", "Shop")
                         .WithMany("Items")
                         .HasForeignKey("ShopId");

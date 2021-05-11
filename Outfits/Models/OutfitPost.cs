@@ -18,9 +18,12 @@ namespace Outfits.Models
 
         public string username { get; set; }
         public string Description { get; set; }
+        public string Product1 { get; set; }
 
-        //public List<Product> Items { get; set; }
-        //public int Likes { get; set; }
+        public string Product2 { get; set; }
+
+        public string Product3 { get; set; }
+
 
         [NotMapped]
         [DisplayName("Įkelti nuotrauką")]

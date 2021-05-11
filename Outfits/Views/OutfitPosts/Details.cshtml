@@ -10,11 +10,10 @@
         <div class="card-body">
             <h5 class="card-title">@Html.DisplayFor(model => @model.username)</h5>
             <p class="card-text">@Html.DisplayFor(model => @model.Description)</p>
-
         </div>
-        @*<div class="card-footer">
-                <small class="text-muted">@Html.DisplayFor(model => model.Likes)</small>
-            </div>*@
+        <div class="card-footer">
+            <small class="text-muted">@Html.DisplayFor(model => @model.Product1) @Html.DisplayFor(model => @model.Product2) @Html.DisplayFor(model => @model.Product3)</small>
+        </div>
     </div>
 </div>
 <div class="row">
