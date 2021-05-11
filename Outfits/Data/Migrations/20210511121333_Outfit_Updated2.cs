@@ -6,10 +6,6 @@ namespace Outfits.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "ProductCollection",
-                table: "OutfitPost");
-
             migrationBuilder.AddColumn<string>(
                 name: "Product1",
                 table: "OutfitPost",
@@ -39,12 +35,7 @@ namespace Outfits.Data.Migrations
             migrationBuilder.DropColumn(
                 name: "Product3",
                 table: "OutfitPost");
-
-            migrationBuilder.AddColumn<string>(
-                name: "ProductCollection",
-                table: "OutfitPost",
-                type: "nvarchar(max)",
-                nullable: true);
+        
         }
     }
 }

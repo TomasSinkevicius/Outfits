@@ -9189,19 +9189,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\antan\\.nuget\\packages\\": {}
+    "C:\\Users\\tom\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AnalizesProjektas\\Outfits\\Outfits\\Outfits.csproj",
+      "projectUniqueName": "C:\\Users\\tom\\Desktop\\Analize\\Outfits\\Outfits\\Outfits.csproj",
       "projectName": "Outfits",
-      "projectPath": "D:\\AnalizesProjektas\\Outfits\\Outfits\\Outfits.csproj",
-      "packagesPath": "C:\\Users\\antan\\.nuget\\packages\\",
-      "outputPath": "D:\\AnalizesProjektas\\Outfits\\Outfits\\obj\\",
+      "projectPath": "C:\\Users\\tom\\Desktop\\Analize\\Outfits\\Outfits\\Outfits.csproj",
+      "packagesPath": "C:\\Users\\tom\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tom\\Desktop\\Analize\\Outfits\\Outfits\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\antan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9268,12 +9268,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.14, 3.1.14]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -9282,7 +9276,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
