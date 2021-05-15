@@ -18,7 +18,16 @@
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
-                    <p>@Html.DisplayFor(modelItem => item.Price) €</p>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Likes)</p>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.IsInCart)</p>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.IsInWishList)</p>
+
+
+                    <a @Html.ActionLink("Prideti i krepseli", "AddToCart", new { id = item.Id })></a>
+                    <a @Html.ActionLink("Like", "Like", new { id = item.Id })></a>
+                    <a @Html.ActionLink("Dislike", "Dislike", new { id = item.Id })></a>
+                    <a @Html.ActionLink("Prideti i noru sarasa", "AddToWishList", new { id = item.Id })></a>
                 </div>
                 @*<div class="card-footer">
                     <small class="text-muted">@Html.DisplayFor(modelItem => item.Likes)</small>

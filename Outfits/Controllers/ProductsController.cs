@@ -184,5 +184,47 @@ namespace Outfits.Controllers
         {
             return _context.Product.Any(e => e.Id == id);
         }
+        public ActionResult AddToCart(int id)
+        {
+            Product update = _context.Product.ToList().Find(u => u.Id == id);
+            update.IsInCart = 1;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Like(int id)
+        {
+            Product update = _context.Product.ToList().Find(u => u.Id == id);
+            update.Likes += 1;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Dislike(int id)
+        {
+            Product update = _context.Product.ToList().Find(u => u.Id == id);
+            update.Likes -= 1;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult AddToWishList(int id)
+        {
+            Product update = _context.Product.ToList().Find(u => u.Id == id);
+            update.IsInWishList = 1;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> ToCart()
+        {
+            return View("Cart", await _context.Product.ToListAsync());
+        }
+
+        public async Task<IActionResult> ToWishList()
+        {
+            return View("WishList", await _context.Product.ToListAsync());
+        }
+
     }
 }

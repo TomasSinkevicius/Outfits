@@ -18,6 +18,8 @@ namespace Outfits.Models
         public string Description { get; set; }
         public double Price { get; set; }
         public int Likes { get; set; }
+        public int IsInCart { get; set; }
+        public int IsInWishList { get; set; }
         public Shop Shop { get; set; }
 
         [NotMapped]
@@ -26,7 +28,8 @@ namespace Outfits.Models
 
         public Product()
         {
-            
+            IsInCart = 0;
+            IsInWishList = 0;
         }
     }
 }
