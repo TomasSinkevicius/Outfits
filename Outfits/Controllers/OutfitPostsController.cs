@@ -53,13 +53,13 @@ namespace Outfits.Controllers
         {
 
             ViewBag.Products = GetProducts().Select(x => new SelectListItem()
-            {                      
-                Text = x.Name,              
+            {
+                Text = x.Name,
                 Value = x.Name.ToString(),
 
             }).ToList();
 
-            
+
             return View();
         }
 
@@ -78,7 +78,7 @@ namespace Outfits.Controllers
             }).ToList();
 
             if (ModelState.IsValid)
-            {   
+            {
                 // Save image to wwwroot/image
                 string wwwRootPath = _hostEnvironment.WebRootPath;
                 string fileName = Path.GetFileNameWithoutExtension(outfitPost.ImageFile.FileName);
@@ -211,6 +211,63 @@ namespace Outfits.Controllers
         private bool OutfitPostExists(int id)
         {
             return _context.OutfitPost.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> Recommendation(int? id)
+        {
+            ViewBag.Products = GetProducts().Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Name.ToString(),
+
+            }).ToList();
+            var outfitPost = await _context.OutfitPost
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+
+            return View(outfitPost);
+        }
+  
+
+        public ActionResult Like(int id)
+        {
+            OutfitPost update = _context.OutfitPost.ToList().Find(u => u.Id == id);
+            update.Likes += 1;
+            update.WhoHasLiked += "*" + User.Identity.Name + "*";
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Dislike(int id)
+        {
+            OutfitPost update = _context.OutfitPost.ToList().Find(u => u.Id == id);
+            update.Likes -= 1;
+            update.WhoHasLiked = update.WhoHasLiked.Replace("*" + User.Identity.Name + "*", "");
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+      
+
+        public ActionResult SetRecommendation1(int id, string Recommendation1)
+        {
+            OutfitPost update = _context.OutfitPost.ToList().Find(u => u.Id == id);
+            update.Recommendation1 = Recommendation1;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult SetRecommendation2(int id, string Recommendation2)
+        {
+            OutfitPost update = _context.OutfitPost.ToList().Find(u => u.Id == id);
+            update.Recommendation2 = Recommendation2;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult SetRecommendation3(int id, string Recommendation3)
+        {
+            OutfitPost update = _context.OutfitPost.ToList().Find(u => u.Id == id);
+            update.Recommendation3 = Recommendation3;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

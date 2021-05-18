@@ -23,6 +23,13 @@ namespace Outfits.Models
         public string Product2 { get; set; }
 
         public string Product3 { get; set; }
+        public string Recommendation1 { get; set; }
+        public string Recommendation2 { get; set; }
+        public string Recommendation3 { get; set; }
+
+        public string WhoHasLiked { get; set; }
+
+        public int Likes { get; set; }
 
 
         [NotMapped]
@@ -31,6 +38,11 @@ namespace Outfits.Models
 
         public OutfitPost()
         {
+            Recommendation1 = "";
+            Recommendation2 = "";
+            Recommendation3 = "";
+            WhoHasLiked = "a";
+            Likes = 0;
         }
     }
 }

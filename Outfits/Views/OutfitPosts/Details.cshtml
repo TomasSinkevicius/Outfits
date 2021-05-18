@@ -8,23 +8,55 @@
     <div class="card">
         <img src="@("~/image/"+ Model.ImageName)" class="card-img-top" asp-append-version="true" />
         <div class="card-body">
-            <h5 class="card-title">@Html.DisplayFor(model => @model.username)</h5>
-            <p class="card-text">@Html.DisplayFor(model => @model.Description)</p>
+            <h5 class="card-title">Apranga priklauso - @Html.DisplayFor(model => @model.username)</h5>
+            <p class="card-text">Aprašymas - @Html.DisplayFor(model => @model.Description)</p>
         </div>
         <div class="card-footer">
-            <small class="text-muted">@Html.DisplayFor(model => @model.Product1) @Html.DisplayFor(model => @model.Product2) @Html.DisplayFor(model => @model.Product3)</small>
+            <small class="text-muted">Apranga sudaryta iš - @Html.DisplayFor(model => @model.Product1) @Html.DisplayFor(model => @model.Product2) @Html.DisplayFor(model => @model.Product3)</small>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="m-2">
-        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Redaguoti</a>
+
+    <div class="row">
+        <div class="m-3">
+            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Redaguoti</a>
+        </div>
+        <div class="m-3">
+            <a class="btn btn-primary" asp-action="Recommendation" asp-route-id="@Model.Id">Siūlyti aksesuarą</a>
+        </div>
+        <div class="m-3">
+            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Ištrinti</a>
+        </div>
     </div>
-    <div class="m-2">
-        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Ištrinti</a>
+
+    <div class="">
+        <h2>Rekomendacijos:</h2>
+        @if (Model.Recommendation1 == "" && Model.Recommendation2 == "" && Model.Recommendation3 == "")
+        {
+            <h6>Kol kas rekomendacijų nėra, prašome rekomenduoti!</h6>
+        }
+        else
+        { @if (Model.Recommendation1 != "")
+            {<div class="m-3">
+                    <p class="card-text ">@Html.DisplayFor(model => @model.Recommendation1)</p>
+                    <hr width="100%" />
+                </div>}
+
+        @if (Model.Recommendation2 != "")
+        {<div class="m-3">
+                <p class="card-text ">@Html.DisplayFor(model => @model.Recommendation2)</p>
+                <hr width="100%" />
+            </div>}
+
+        @if (Model.Recommendation3 != "")
+        {<div class="m-3">
+                <p class="card-text">@Html.DisplayFor(model => @model.Recommendation3)</p>
+                <hr width="100%" />
+            </div>}}
+
+
     </div>
+
     <div class="m-2">
         <a asp-action="Index">Grįžti į sąrašą</a>
     </div>
-
 </div>

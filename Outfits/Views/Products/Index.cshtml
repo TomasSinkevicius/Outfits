@@ -16,22 +16,21 @@
             <div class="card">
                 <a asp-action="Details" asp-route-id="@item.Id"><img src="@("~/image/" + item.ImageName)" class="card-img-top" asp-append-version="true" /></a>
                 <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.Likes)</p>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.IsInCart)</p>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.IsInWishList)</p>
+                    <h5 class="card-title">Pavadinimas - @Html.DisplayFor(modelItem => item.Name)</h5>
+                    <p class="card-text">Aprašymas - @Html.DisplayFor(modelItem => item.Description)</p>
+                    <p class="card-text">Kaina - @Html.DisplayFor(modelItem => item.Price) €</p>
 
+                    <p>@Html.ActionLink("Prideti i krepseli", "AddToCart", new { id = item.Id })</p>
+                    <p> @Html.ActionLink("Prideti i noru sarasa", "AddToWishList", new { id = item.Id })</p>
+                    <div class="d-flex flex-row ml-1">
+                        @if (!item.WhoHasLiked.Contains("*" + User.Identity.Name + "*"))
+                        {<p>@Html.ActionLink("Like", "Like", new { id = item.Id })</p>}
+                        @if (item.WhoHasLiked.Contains("*" + User.Identity.Name + "*"))
+                        {<p>@Html.ActionLink("Dislike", "Dislike", new { id = item.Id }) </p>}
 
-                    <a @Html.ActionLink("Prideti i krepseli", "AddToCart", new { id = item.Id })></a>
-                    <a @Html.ActionLink("Like", "Like", new { id = item.Id })></a>
-                    <a @Html.ActionLink("Dislike", "Dislike", new { id = item.Id })></a>
-                    <a @Html.ActionLink("Prideti i noru sarasa", "AddToWishList", new { id = item.Id })></a>
+                        <p class="px-1">@Html.DisplayFor(modelItem => item.Likes)</p>
+                    </div>
                 </div>
-                @*<div class="card-footer">
-                    <small class="text-muted">@Html.DisplayFor(modelItem => item.Likes)</small>
-                </div>*@
             </div>
 
         </div>

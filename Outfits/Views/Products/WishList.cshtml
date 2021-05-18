@@ -4,31 +4,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Parduotuvė</h1>
+<h1>Norų sąrašas</h1>
 
-<p>
-    <a asp-action="Create">Įkelti naują prekę</a>
-</p>
 <div class="card-columns">
     @foreach (var item in Model)
     {
-        @if (item.IsInWishList == 1)
+        @if (item.HasInWishList.Contains("*" + User.Identity.Name + "*"))
         {<div class="col mb-4">
                 <div class="card">
                     <a asp-action="Details" asp-route-id="@item.Id"><img src="@("~/image/" + item.ImageName)" class="card-img-top" asp-append-version="true" /></a>
                     <div class="card-body">
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                         <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.Likes)</p>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.IsInCart)</p>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.IsInWishList)</p>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Price) €</p>
 
-
-                        <a @Html.ActionLink("Prideti i krepseli", "AddToCart", new { id = item.Id })></a>
-                        <a @Html.ActionLink("Like", "Like", new { id = item.Id })></a>
-                        <a @Html.ActionLink("Dislike", "Dislike", new { id = item.Id })></a>
-                        <a @Html.ActionLink("Prideti i noru sarasa", "AddToWishList", new { id = item.Id })></a>
+                        <p>@Html.ActionLink("Prideti i krepšelį", "AddToCart", new { id = item.Id })</p>
+                        <p>@Html.ActionLink("Pašalinti iš norų sąrašo", "RemoveFromWishList", new { id = item.Id })</p>
                     </div>
                 </div>
 

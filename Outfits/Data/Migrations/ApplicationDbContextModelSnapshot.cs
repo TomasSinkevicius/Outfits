@@ -15,7 +15,7 @@ namespace Outfits.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.13")
+                .HasAnnotation("ProductVersion", "3.1.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -232,6 +232,9 @@ namespace Outfits.Data.Migrations
                     b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Likes")
+                        .HasColumnType("int");
+
                     b.Property<string>("Product1")
                         .HasColumnType("nvarchar(max)");
 
@@ -239,6 +242,18 @@ namespace Outfits.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Product3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Recommendation1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Recommendation2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Recommendation3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WhoHasLiked")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("username")
@@ -257,6 +272,12 @@ namespace Outfits.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HasInCart")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HasInWishList")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageName")
@@ -280,11 +301,38 @@ namespace Outfits.Data.Migrations
                     b.Property<int?>("ShopId")
                         .HasColumnType("int");
 
+                    b.Property<string>("WhoHasLiked")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ShopId");
 
                     b.ToTable("Product");
+                });
+
+            modelBuilder.Entity("Outfits.Models.Recommendation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("OutfitPostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Recommendation1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Recommendation2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Recommendation3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Recommendation");
                 });
 
             modelBuilder.Entity("Outfits.Models.Shop", b =>

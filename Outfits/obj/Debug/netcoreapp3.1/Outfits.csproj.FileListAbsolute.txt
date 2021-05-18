@@ -579,6 +579,11 @@ C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas
 C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
-C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Views\Products\Cartt.cshtml.g.cs
 C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Views\Products\WishList.cshtml.g.cs
 C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Views\Products\Cart.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Views\OutfitPosts\Recommendation.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Views\Recommendations\Create.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Views\Recommendations\Delete.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Views\Recommendations\Details.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Views\Recommendations\Edit.cshtml.g.cs
+C:\Users\tom\Desktop\Analize\Outfits\Outfits\obj\Debug\netcoreapp3.1\Razor\Views\Recommendations\Index.cshtml.g.cs

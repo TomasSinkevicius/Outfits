@@ -184,18 +184,39 @@ namespace Outfits.Controllers
         {
             return _context.Product.Any(e => e.Id == id);
         }
+
         public ActionResult AddToCart(int id)
         {
             Product update = _context.Product.ToList().Find(u => u.Id == id);
             update.IsInCart = 1;
+            update.HasInCart += "*" + User.Identity.Name + "*";
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ToCart");
+        }
+       
+        public ActionResult RemoveFromCart(int id)
+        {
+            Product update = _context.Product.ToList().Find(u => u.Id == id);
+            update.IsInCart = 0;
+            update.HasInCart = update.WhoHasLiked.Replace("*" + User.Identity.Name + "*", "");
+            _context.SaveChanges();
+            return RedirectToAction("ToCart");
+        }
+    
+        public ActionResult RemoveFromWishList(int id)
+        {
+            Product update = _context.Product.ToList().Find(u => u.Id == id);
+            update.IsInWishList = 0;
+            update.HasInWishList = update.WhoHasLiked.Replace("*" + User.Identity.Name + "*", "");
+            _context.SaveChanges();
+            return RedirectToAction("ToWishList");
         }
 
         public ActionResult Like(int id)
         {
             Product update = _context.Product.ToList().Find(u => u.Id == id);
             update.Likes += 1;
+            update.WhoHasLiked += "*" + User.Identity.Name + "*";
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -204,18 +225,20 @@ namespace Outfits.Controllers
         {
             Product update = _context.Product.ToList().Find(u => u.Id == id);
             update.Likes -= 1;
+            update.WhoHasLiked = update.WhoHasLiked.Replace("*" + User.Identity.Name + "*", "");
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
+  
         public ActionResult AddToWishList(int id)
         {
             Product update = _context.Product.ToList().Find(u => u.Id == id);
             update.IsInWishList = 1;
+            update.HasInWishList += "*" + User.Identity.Name + "*";
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ToWishList");
         }
-
+ 
         public async Task<IActionResult> ToCart()
         {
             return View("Cart", await _context.Product.ToListAsync());

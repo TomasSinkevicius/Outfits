@@ -1,0 +1,60 @@
+﻿@model Outfits.Models.OutfitPost
+
+@{
+    ViewData["Title"] = "Rekomenduoti";
+}
+
+    <div >
+        @if (Model.Recommendation1 != "" && Model.Recommendation2 != "" && Model.Recommendation3 != "")
+        {
+            <h1>Daugiau aksesuarų siūlyti negalima :(</h1>
+        }
+        else
+
+        {<h1>Čia galite siūlyti aksesuarus!</h1>}
+
+
+        @if (Model.Recommendation1 == "")
+        {
+            <form asp-controller="OutfitPosts" asp-action="SetRecommendation1" method="post">
+                <div class="form-group">
+                    <label>Įveskite rekomendaciją</label>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="text" name="Recommendation1" placeholder="Rekomendacija" />
+                    <input type="submit" value="Išsaugoti rekomendacija" class="btn btn-primary" />
+                </div>
+                
+            </form>
+        }
+
+        @if (Model.Recommendation2 == "")
+        {<form asp-controller="OutfitPosts" asp-action="SetRecommendation2" method="post" >
+             <div class="form-group">
+                 <label>Įveskite rekomendaciją</label>
+                 <input type="hidden" asp-for="Id" />
+                 <input type="text" name="Recommendation2" placeholder="Rekomendacija" />
+                 <input type="submit" value="Išsaugoti rekomendacija" class="btn btn-primary" />
+             </div>
+             
+            </form>
+        }
+
+        @if (Model.Recommendation3 == "")
+        {
+            <form asp-controller="OutfitPosts" asp-action="SetRecommendation3" method="post" >
+                <div class="form-group">
+                    <label>Įveskite rekomendaciją</label>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="text" name="Recommendation3" placeholder="Rekomendacija" />
+                    <input type="submit" value="Išsaugoti rekomendacija" class="btn btn-primary" />
+                </div>
+               
+            </form>}
+    </div>
+
+<div class="row">
+    <div class="m-2">
+        <a asp-action="Index">Grįžti į sąrašą</a>
+    </div>
+</div>
+

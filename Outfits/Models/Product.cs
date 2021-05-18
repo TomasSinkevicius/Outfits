@@ -20,6 +20,11 @@ namespace Outfits.Models
         public int Likes { get; set; }
         public int IsInCart { get; set; }
         public int IsInWishList { get; set; }
+
+        public string HasInCart { get; set; }
+        public string HasInWishList { get; set; }
+
+        public string WhoHasLiked { get; set; }
         public Shop Shop { get; set; }
 
         [NotMapped]
@@ -28,8 +33,12 @@ namespace Outfits.Models
 
         public Product()
         {
-            IsInCart = 0;
+            IsInCart = 12;
             IsInWishList = 0;
+            WhoHasLiked = "a";
+            HasInCart = "a";
+            HasInWishList = "a";
+
         }
     }
 }
