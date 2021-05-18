@@ -85,6 +85,7 @@ namespace Outfits.Controllers
                 string extension = Path.GetExtension(outfitPost.ImageFile.FileName);
                 outfitPost.ImageName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
                 string path = Path.Combine(wwwRootPath + "/image/", fileName);
+                outfitPost.username = User.Identity.Name;
 
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {

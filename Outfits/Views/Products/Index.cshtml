@@ -3,14 +3,34 @@
 @{
     ViewData["Title"] = "Index";
 }
+@*List<Order> SortedList = objListOrder.OrderBy(o=>o.OrderDate).ToList();*@
+@* Places all products into list *@
+@{ List<Product> UnsortedProducts = new List<Product>();
+    foreach (var item in Model)
+    {
 
+        item.PriorityLevel = 0;
+        UnsortedProducts.Add(item);
+
+        foreach(var item1 in UnsortedProducts)
+        {
+            int freq = 0;
+            var count = item1.Priority.Split(new[] { '*' }).Count(s => s == User.Identity.Name);
+            Console.WriteLine(count);
+            item1.PriorityLevel = count;
+        }
+    }
+    List<Product> SortedList = UnsortedProducts.OrderByDescending(o => o.PriorityLevel).ToList();
+
+}
 <h1>Parduotuvė</h1>
-
+@*Regex.Matches(input, "true").Count*@
 <p>
     <a asp-action="Create">Įkelti naują prekę</a>
+    
 </p>
 <div class="card-columns">
-    @foreach (var item in Model)
+    @foreach (var item in SortedList)
     {
         <div class="col mb-4">
             <div class="card">
@@ -20,9 +40,10 @@
                     <p class="card-text">Aprašymas - @Html.DisplayFor(modelItem => item.Description)</p>
                     <p class="card-text">Kaina - @Html.DisplayFor(modelItem => item.Price) €</p>
 
-                    <p>@Html.ActionLink("Prideti i krepseli", "AddToCart", new { id = item.Id })</p>
-                    <p> @Html.ActionLink("Prideti i noru sarasa", "AddToWishList", new { id = item.Id })</p>
-                    <div class="d-flex flex-row ml-1">
+
+                    <p>@Html.ActionLink("Pridėti į krepšelį", "AddToCart", new { id = item.Id })</p>
+                    <p> @Html.ActionLink("Pridėti į norų sąrašą", "AddToWishList", new { id = item.Id })</p>
+                    <div class="d-flex flex-row">
                         @if (!item.WhoHasLiked.Contains("*" + User.Identity.Name + "*"))
                         {<p>@Html.ActionLink("Like", "Like", new { id = item.Id })</p>}
                         @if (item.WhoHasLiked.Contains("*" + User.Identity.Name + "*"))

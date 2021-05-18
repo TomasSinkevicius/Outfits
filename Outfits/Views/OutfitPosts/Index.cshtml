@@ -16,8 +16,8 @@
             <div class="card">
                 <a asp-action="Details" asp-route-id="@item.Id"><img src="@("~/image/" + item.ImageName)" class="card-img-top" asp-append-version="true" /></a>
                 <div class="card-body">
-                    <h5 class="card-title">Aprangos priklauso - @Html.DisplayFor(modelItem => item.username)</h5>
-                    <p class="card-text">Apršymas - @Html.DisplayFor(modelItem => item.Description)</p>
+                    <h5 class="card-title">Apranga priklauso - @Html.DisplayFor(modelItem => item.username)</h5>
+                    <p class="card-text">Aprašymas - @Html.DisplayFor(modelItem => item.Description)</p>
                     <div class="d-flex flex-row">
                         @if (!item.WhoHasLiked.Contains("*" + User.Identity.Name + "*"))
                         {<p>@Html.ActionLink("Like", "Like", new { id = item.Id })</p>}

@@ -216,6 +216,7 @@ namespace Outfits.Controllers
         {
             Product update = _context.Product.ToList().Find(u => u.Id == id);
             update.Likes += 1;
+            update.Priority += "*" + User.Identity.Name + "*";
             update.WhoHasLiked += "*" + User.Identity.Name + "*";
             _context.SaveChanges();
             return RedirectToAction("Index");
@@ -234,6 +235,7 @@ namespace Outfits.Controllers
         {
             Product update = _context.Product.ToList().Find(u => u.Id == id);
             update.IsInWishList = 1;
+            update.Priority += "*" + User.Identity.Name + "*";
             update.HasInWishList += "*" + User.Identity.Name + "*";
             _context.SaveChanges();
             return RedirectToAction("ToWishList");

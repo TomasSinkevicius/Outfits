@@ -25,6 +25,9 @@ namespace Outfits.Models
         public string HasInWishList { get; set; }
 
         public string WhoHasLiked { get; set; }
+
+        public string Priority { get; set; }
+        public int PriorityLevel { get; set; }
         public Shop Shop { get; set; }
 
         [NotMapped]
@@ -33,11 +36,13 @@ namespace Outfits.Models
 
         public Product()
         {
-            IsInCart = 12;
+            IsInCart = 0;
             IsInWishList = 0;
             WhoHasLiked = "a";
             HasInCart = "a";
             HasInWishList = "a";
+            Priority = "";
+            PriorityLevel = 0;
 
         }
     }

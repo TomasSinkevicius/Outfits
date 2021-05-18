@@ -18,7 +18,7 @@
                         <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
                         <p class="card-text">@Html.DisplayFor(modelItem => item.Price) €</p>
 
-                        <p>@Html.ActionLink("Prideti i krepšelį", "AddToCart", new { id = item.Id })</p>
+                        <p>@Html.ActionLink("Pridėti į krepšelį", "AddToCart", new { id = item.Id })</p>
                         <p>@Html.ActionLink("Pašalinti iš norų sąrašo", "RemoveFromWishList", new { id = item.Id })</p>
                     </div>
                 </div>
